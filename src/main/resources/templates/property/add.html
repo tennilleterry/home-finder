@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<form method="post" style="max-width:600px;" th:object="${property}">
+    <div class="form-group">
+        <label th:for="name">Name</label>
+        <input class="form-control" th:field="*{name}" />
+        <span th:errors="*{name}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="description">Description</label>
+        <input class="form-control" th:field="*{description}" />
+        <span th:errors="*{description}" class="error"></span>
+    </div>
+
+     <div class="form-group">
+         <label th:for="type">Status</label>
+         <select name="statusId">
+             <option th:each="status : ${statuses}"
+                     th:text="${status.name}"
+                     th:value="${status.id}"></option>
+         </select>
+     </div>
+
+    <!--<div class="form-group">
+        <label th:for="type">Status</label>
+        <select th:field="*{type}">
+            <option th:each="propertyType : ${propertyTypes}"
+                    th:text="${propertyType.name}"
+                    th:value="${propertyType}"></option>
+        </select>
+    </div>-->
+
+
+    <input type="submit" value="Add Property" />
+</form>
+
+</body>
+</html>
+

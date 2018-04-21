@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<ul class="list">
+    <li th:each="location : ${locations}">
+        <a th:href="'/location/view/' + ${location.id}" th:text="${location.name}"></a>
+    </li>
+</ul>
+<a href="/location/add">Add Location</a>
+</body>
+</html>

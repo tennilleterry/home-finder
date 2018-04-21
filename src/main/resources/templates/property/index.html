@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<p th:unless="${properties} and ${properties.size()}">no properties added :(</p>
+
+
+<table class="table">
+
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Status</th>
+    </tr>
+
+    <tr th:each="property : ${properties}">
+        <td th:text="${property.name}"></td>
+        <td th:text="${property.description}"></td>
+        <td th:text="${property.status.name}"></td>
+    </tr>
+
+</table>
+
+<!--<table class="table">
+
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Status</th>
+    </tr>
+
+    <tr th:each="property : ${properties}">
+        <td th:text="${property.name}"></td>
+        <td th:text="${property.description}"></td>
+        <td th:text="${property.type.name}"></td>
+    </tr>
+
+</table>-->
+
+
+<a href="/property/add">Add</a> |
+<a href="/property/remove">Remove</a>
+
+</body>
+</html>

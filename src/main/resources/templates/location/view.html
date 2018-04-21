@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<ul>
+    <li th:each="property : ${properties}" th:text="${property.name}">
+    </li>
+</ul>
+<p th:unless="${properties} and ${properties.size()}"><i>No Listings Yet</i></p>
+
+<p><a th:href="'/location/add-item/' + ${id}">Add Listing</a></p>
+</body>
+</html>
