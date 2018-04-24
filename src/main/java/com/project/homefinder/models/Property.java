@@ -18,6 +18,11 @@ public class Property {
     private String name;
 
     @NotNull
+    @Size(min = 1, message = "Address must not be empty")
+    private String address;
+
+
+    @NotNull
     @Size(min = 1, message = "Description must not be empty")
     private String description;
 
@@ -25,7 +30,8 @@ public class Property {
 
     //private PropertyType type;
 
-
+    @ManyToOne
+     private User user;
 
 
     @ManyToOne
@@ -37,8 +43,10 @@ public class Property {
 
 
 
-    public Property(String name, String description) {
+
+    public Property(String name, String address, String description) {
         this.name = name;
+        this.address = address;
         this.description = description;
     }
 
@@ -54,6 +62,14 @@ public class Property {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getDescription() {
@@ -72,13 +88,17 @@ public class Property {
     public List<Location> getLocations() { return locations; }
 
 
-    /*public PropertyType getType() {
-        return type;
+
+
+    public User getUser() {
+        return user;
     }
 
-    public void setPropertyType(PropertyType type) {
-        this.type = type;
-    }*/
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+
 
 }
 
