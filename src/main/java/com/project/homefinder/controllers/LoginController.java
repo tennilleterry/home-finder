@@ -31,6 +31,8 @@ public class LoginController {
             if(password.equals(logIn.getPassword())){
 
                 return "redirect:/property/add";
+                //return "redirect:/property/index";
+                //return "redirect:/user/index";
             } else {
                 model.addAttribute("title", "Login");
                 model.addAttribute("previousUsername", userName);

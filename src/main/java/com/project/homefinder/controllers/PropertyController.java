@@ -23,8 +23,6 @@ public class PropertyController {
     @Autowired
     UserDao userDao;
 
-
-
     @Autowired
     PropertyDao propertyDao;
 
@@ -70,7 +68,7 @@ public class PropertyController {
 
         model.addAttribute("users", userDao.findAll());
 
-       // model.addAttribute("propertyTypes", PropertyType.values());
+
         return "property/add";
     }
 
@@ -80,20 +78,53 @@ public class PropertyController {
 
     @RequestMapping(value = "add", method = RequestMethod.POST)
     public String processAddPropertyForm(@ModelAttribute @Valid Property newProperty,
-                                         Errors errors, @RequestParam int statusId, Model model) {
+                                         Errors errors, @RequestParam int statusId, @RequestParam int userId, Model model) {
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add Property");
             model.addAttribute("statuses", statusDao.findAll());
+
+
+
+            model.addAttribute("users", userDao.findAll());
+
+
             return "property/add";
         }
 
         Status stat = statusDao.findOne(statusId);
         newProperty.setStatus(stat);
+        propertyDao.save(newProperty);
+
+
+        User theUser = userDao.findOne(userId);
+        newProperty.setUser(theUser);
+        propertyDao.save(newProperty);
+
+
+        return "redirect:";
+    }
+
+
+
+
+    /*@RequestMapping(value = "add", method = RequestMethod.POST)
+    public String processAddPropertyForm(@ModelAttribute @Valid Property newProperty,
+                                         Errors errors, @RequestParam int userId, Model model) {
+
+        if (errors.hasErrors()) {
+            model.addAttribute("title", "Add Property");
+            model.addAttribute("users", userDao.findAll());
+            return "property/add";
+        }
+
+        User user = userDao.findOne(userId);
+        newProperty.setUser(user);
 
         propertyDao.save(newProperty);
         return "redirect:";
-    }
+    }*/
+
 
 
 

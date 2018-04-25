@@ -28,7 +28,7 @@ public class Property {
 
 
 
-    //private PropertyType type;
+    //fix change to one-to-one. There is one user for a property listing.
 
     @ManyToOne
      private User user;

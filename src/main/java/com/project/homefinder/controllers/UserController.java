@@ -19,10 +19,19 @@ public class UserController {
     @Autowired
     private UserDao userDao;
 
+    @RequestMapping(value = "")
+    public String index(Model model) {
+
+        model.addAttribute("users", userDao.findAll());
+        model.addAttribute("title", "Users");
+
+        return "user/index";
+    }
+
     @RequestMapping(value="add", method = RequestMethod.GET)
     public String displayAddUserForm(Model model){
         model.addAttribute("title", "Create Account");
-        model.addAttribute(new User());
+        model.addAttribute("user", new User());
         return "user/add";
     }
 
@@ -57,6 +66,10 @@ public class UserController {
             // return "redirect:/property/add" + newUserId;
 
             return "redirect:/property/add";
+            //return "redirect:/property/index";
+
+
+            //return "redirect:/user/index";
 
 
         }

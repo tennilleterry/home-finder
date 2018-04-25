@@ -12,10 +12,13 @@
 <p th:unless="${properties} and ${properties.size()}">no properties added :(</p>
 
 
+
+
+
 <table class="table">
 
     <tr>
-        <!--<th>userName</th>-->
+        <th>User</th>
         <th>Name</th>
         <th>Address</th>
         <th>Description</th>
@@ -23,7 +26,7 @@
     </tr>
 
     <tr th:each="property : ${properties}">
-        <!--<td th:text="${property.user.name}"></td>-->
+        <td th:text="${property.user.name}"></td>
         <td th:text="${property.name}"></td>
         <td th:text="${property.address}"></td>
         <td th:text="${property.description}"></td>
@@ -32,21 +35,6 @@
 
 </table>
 
-<!--<table class="table">
-
-    <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Status</th>
-    </tr>
-
-    <tr th:each="property : ${properties}">
-        <td th:text="${property.name}"></td>
-        <td th:text="${property.description}"></td>
-        <td th:text="${property.type.name}"></td>
-    </tr>
-
-</table>-->
 
 
 <a href="/property/add">Add</a> |
