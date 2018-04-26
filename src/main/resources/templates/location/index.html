@@ -1,17 +1,50 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
+
 <body class="container">
 
 <h1 th:text="${title}">Default Title</h1>
 
 <nav th:replace="fragments :: navigation"></nav>
 
-<ul class="list">
-    <li th:each="location : ${locations}">
-        <a th:href="'/location/view/' + ${location.id}" th:text="${location.name}"></a>
-    </li>
-</ul>
-<a href="/location/add">Add Location</a>
+<p th:unless="${locations} and ${locations.size()}">no locations added :(</p>
+
+
+
+
+
+<table class="table">
+
+    <tr>
+
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Occupation</th>
+        <th>Income</th>
+        <th>Credit Score</th>
+        <th>Desired Amenities</th>
+
+
+
+    </tr>
+
+    <tr th:each="location : ${locations}">
+        <td><a th:href="'/location/view/' + ${location.id}" th:text="${location.name}"></a></td>
+        <td th:text="${location.phone}"></td>
+        <td th:text="${location.occupation}"></td>
+        <td th:text="${location.monthlyIncome}"></td>
+        <td th:text="${location.creditScore}"></td>
+        <td th:text="${location.amenities}"></td>
+
+    </tr>
+
+</table>
+
+
+
+<a href="/location/add">Add Client</a>
+
+
 </body>
 </html>

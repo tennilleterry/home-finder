@@ -65,6 +65,8 @@ public class LocationController {
 
         Location location = locationDao.findOne(id);
         model.addAttribute("title", location.getName());
+
+
         model.addAttribute("properties",location.getProperties());
         model.addAttribute("id", location.getId());
 
@@ -76,7 +78,7 @@ public class LocationController {
 
         AddLocationItemForm form = new AddLocationItemForm(propertyDao.findAll(), location);
 
-        model.addAttribute("title", "Add property to: " + location.getName());
+        model.addAttribute("title", location.getName());
         model.addAttribute("form", form);
         return "location/add-item";
     }

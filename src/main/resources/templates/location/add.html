@@ -12,7 +12,37 @@
         <input class="form-control" th:field="*{name}" />
         <span th:errors="*{name}" class="error"></span>
     </div>
-    <input type="submit" value="Add Location" />
+
+    <div class="form-group">
+        <label th:for="phone">Phone No.</label>
+        <input class="form-control" th:field="*{phone}" />
+        <span th:errors="*{phone}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="occupation">Occupation</label>
+        <input class="form-control" th:field="*{occupation}" />
+        <span th:errors="*{occupation}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="monthlyIncome">Monthly Income</label>
+        <input class="form-control" th:field="*{monthlyIncome}" />
+        <span th:errors="*{monthlyIncome}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="creditScore">Credit Score</label>
+        <input class="form-control" th:field="*{creditScore}" />
+        <span th:errors="*{creditScore}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="amenities">Desired Amenities</label>
+        <input class="form-control" th:field="*{amenities}" />
+        <span th:errors="*{amenities}" class="error"></span>
+    </div>
+    <input type="submit" value="Add Client" />
 </form>
 
 </body>

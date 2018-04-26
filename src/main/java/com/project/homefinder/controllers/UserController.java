@@ -1,5 +1,6 @@
 package com.project.homefinder.controllers;
 
+import com.project.homefinder.models.Location;
 import com.project.homefinder.models.User;
 import com.project.homefinder.models.data.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -28,14 +30,14 @@ public class UserController {
         return "user/index";
     }
 
-    @RequestMapping(value="add", method = RequestMethod.GET)
-    public String displayAddUserForm(Model model){
+    @RequestMapping(value = "add", method = RequestMethod.GET)
+    public String displayAddUserForm(Model model) {
         model.addAttribute("title", "Create Account");
         model.addAttribute("user", new User());
         return "user/add";
     }
 
-    @RequestMapping(value="add", method = RequestMethod.POST)
+    @RequestMapping(value = "add", method = RequestMethod.POST)
     public String processAddUserForm(Model model, @ModelAttribute @Valid User newUser,
                                      Errors errors, String verify) {
         String comparePassword = newUser.getPassword();
@@ -57,22 +59,19 @@ public class UserController {
             newUser.setPassword("");
             return "user/add";
         }
-        if (comparePassword.equals(verify) && !userDao.existsByName(newUser.getName())){
+        if (comparePassword.equals(verify) && !userDao.existsByName(newUser.getName())) {
             userDao.save(newUser);
 
 
-
-            //int newUserId = newUser.getId();
-            // return "redirect:/property/add" + newUserId;
-
             return "redirect:/property/add";
-            //return "redirect:/property/index";
 
 
-            //return "redirect:/user/index";
+            //return "redirect:/view + newUser.getId()";
 
 
         }
         return "user/add";
     }
+
+
 }
