@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<p th:unless="${clients} and ${clients.size()}">no clients added :(</p>
+
+
+
+
+
+<table class="table table-hover">
+    <thead class="thead-dark">
+
+    <tr>
+
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Occupation</th>
+        <th>Income</th>
+        <th>Credit Score</th>
+        <th>Desired Amenities</th>
+
+
+
+    </tr>
+
+    </thead>
+
+    <tr th:each="client : ${clients}">
+        <td><a th:href="'/client/view/' + ${client.id}" th:text="${client.name}"></a></td>
+        <td th:text="${client.phone}"></td>
+        <td th:text="${client.occupation}"></td>
+        <td th:text="${client.monthlyIncome}"></td>
+        <td th:text="${client.creditScore}"></td>
+        <td th:text="${client.amenities}"></td>
+
+    </tr>
+
+</table>
+
+
+<button type="submit" class="btn btn-secondary"><a href="/client/add">Add Client</a></button>
+<button type="submit" class="btn btn-secondary"><a href="/client/remove">Remove</a></button>
+
+
+
+<!--<a href="/location/add">Add Client</a>-->
+
+
+</body>
+</html>

@@ -9,14 +9,14 @@
 
 <form method="post">
 
-    <div th:each="property : ${properties}" class="checkbox">
-        <input type="checkbox" name="ids" th:value="${property.id}" th:id="${property.id}"/>
-        <label th:for="${property.id}" th:text="${property.name}"></label>
+    <div th:each="client : ${clients}" class="checkbox">
+        <input type="checkbox" name="ids" th:value="${client.id}" th:id="${client.id}"/>
+        <label th:for="${client.id}" th:text="${client.name}"></label>
         <br />
     </div>
 
     <!--<input type="submit" value="Remove Listing" />-->
-    <button type="submit" class="btn btn-primary">Remove Listing</button>
+    <button type="submit" class="btn btn-primary">Remove Client</button>
 </form>
 
 </body>

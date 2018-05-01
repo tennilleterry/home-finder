@@ -45,4 +45,18 @@ public class LoginController {
             return "user/login";
         }
     }
+
+
+    @RequestMapping(value = "logout", method = RequestMethod.GET)
+    public String displayLogoutForm(Model model) {
+        model.addAttribute("title", "LOGOUT");
+        return "user/logout";
+    }
+
+    @RequestMapping(value = "logout", method = RequestMethod.POST)
+    public String processLogoutForm(Model model) {
+
+        return "redirect:";
+    }
+
 }

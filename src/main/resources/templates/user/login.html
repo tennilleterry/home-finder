@@ -2,9 +2,13 @@
 <html lang="en" xmlns:th="http://thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <body class="container">
-<h1 th:text="${title}">Default Title</h1>
 
-<form method="post" style="max-width:600px;">
+<p><h1>HOME FINDER</h1></p>
+<hr />
+<h2 th:text="${title}">Default Title</h2>
+
+
+<form method="post" style="max-width:400px;">
     <div class="form-group">
         <label for="userName">Name</label>
         <input type="text" class="form-control" th:value="${previousUsername}" id="userName" name="userName" />
@@ -20,7 +24,9 @@
 
 
 
-    <input type="submit" value="Login" />
+    <!--<input type="submit" value="Login" />-->
+
+    <button type="submit" class="btn btn-primary">Login</button>
 </form>
 
 </body>

@@ -34,7 +34,7 @@ public class PropertyController {
     public String index(Model model) {
 
         model.addAttribute("properties", propertyDao.findAll());
-        model.addAttribute("title", "My Properties");
+        model.addAttribute("title", "Available Properties");
 
         return "property/index";
     }
@@ -61,7 +61,7 @@ public class PropertyController {
 
     @RequestMapping(value = "add", method = RequestMethod.GET)
     public String displayAddPropertyForm(Model model) {
-        model.addAttribute("title", "Add a Property");
+        model.addAttribute("title", "Add Property");
         model.addAttribute(new Property());
         model.addAttribute("statuses", statusDao.findAll());
 

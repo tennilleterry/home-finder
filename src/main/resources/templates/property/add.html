@@ -9,18 +9,9 @@
 
 
 
-<!--<p th:text="'Welcome, ' + ${user.name} + '!'"></p>
-<p th:each="user : ${users}" th:text="${user.name}"></p>-->
-
-<form method="post" style="max-width:600px;" th:object="${property}">
+<form method="post" style="max-width:500px;" th:object="${property}">
 
 
-    <!--<div class="form-group">
-     <ul>
-            <li th:each="user : ${users}" th:text="${user.name}"  th:value="${user.id}">
-            </li>
-        </ul>
-    </div>-->
 
     <div class="form-group">
         <label th:for="name">Name</label>
@@ -53,7 +44,7 @@
      </div>
 
     <div class="form-group">
-        <label th:for="type">Users</label>
+        <label th:for="type">Agent</label>
         <select name="userId">
             <option th:each="user : ${users}"
                     th:text="${user.name}"
@@ -62,10 +53,51 @@
     </div>
 
 
-
-    <input type="submit" value="Add Property" />
+    <button type="submit" class="btn btn-primary">Add Property</button>
+    <!--<input type="submit" value="Add Property" />-->
 </form>
 
+
+
 </body>
+
+<hr />
+
+<style type="text/css">
+    div#map_container{
+        width:50%;
+        height:250px;
+    }
+</style>
+
+<script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSIEFaC-X_3jsvTCV2u7KyrwH9Dz5zOVo "></script>
+
+<script type="text/javascript">
+    function loadMap() {
+        var latlng = new google.maps.LatLng(38.7486972, -90.3700289);
+        var myOptions = {
+            zoom: 10,
+            center: latlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map_container"),myOptions);
+
+        var marker = new google.maps.Marker({
+            position: latlng,
+            map: map,
+
+        });
+
+    }
+</script>
+
+
+<body onload="loadMap()">
+<div id="map_container"></div>
+</body>
+
+
+
 </html>
 

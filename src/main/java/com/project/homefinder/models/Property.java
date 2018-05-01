@@ -38,8 +38,12 @@ public class Property {
     private Status status;
 
 
+    //@ManyToMany(mappedBy="properties")
+    //private List<Location> locations;
+
     @ManyToMany(mappedBy="properties")
-    private List<Location> locations;
+    private List<Client> clients;
+
 
 
 
@@ -85,7 +89,10 @@ public class Property {
 
     public void setStatus(Status status) { this.status = status; }
 
-    public List<Location> getLocations() { return locations; }
+    //public List<Location> getLocations() { return locations; }
+
+    public List<Client> getClients() { return clients; }
+
 
 
 

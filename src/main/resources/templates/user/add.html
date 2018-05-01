@@ -2,9 +2,18 @@
 <html lang="en" xmlns:th="http://thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <body class="container">
-<h1 th:text="${title}">Default Title</h1>
+<p><h1>HOME FINDER</h1></p>
+<hr />
 
-<form method="post" style="max-width:600px;" th:object="${user}">
+<p><h3><a href="login">LOG IN</a></h3></p>
+<p>Or</p>
+
+<h2 th:text="${title}">Default Title</h2>
+
+
+
+
+<form method="post" style="max-width:400px;" th:object="${user}">
     <div class="form-group">
         <label th:for="name">Employee Name</label>
         <input class="form-control" th:field="*{name}" />
@@ -34,8 +43,8 @@
 
 
 
-
-        <input type="submit" value="Create Account" />
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <!--<input type="submit" value="Create Account" />-->
     </div>
 </form>
 

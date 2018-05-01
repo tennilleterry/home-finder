@@ -1,7 +1,5 @@
 package com.project.homefinder.models;
 
-
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -10,9 +8,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.List;
 
-
 @Entity
-public class Location {
+public class Client {
 
     @Id
     @GeneratedValue
@@ -47,7 +44,7 @@ public class Location {
 
 
 
-    public Location(String name, String phone, String occupation, String monthlyIncome, String creditScore, String amenities) {
+    public Client(String name, String phone, String occupation, String monthlyIncome, String creditScore, String amenities) {
         this.name = name;
         this.phone = phone;
         this.occupation = occupation;
@@ -58,7 +55,7 @@ public class Location {
     }
 
 
-    public Location() {
+    public Client() {
     }
 
 

@@ -32,7 +32,7 @@ public class LocationController {
     @RequestMapping(value = "")
     private String index(Model model){
 
-        model.addAttribute("title", "Locations");
+        model.addAttribute("title", "Clients");
         model.addAttribute("locations", locationDao.findAll());
         return "location/index";
 
@@ -41,7 +41,7 @@ public class LocationController {
     @RequestMapping(value = "add", method = RequestMethod.GET)
     private String add(Model model){
 
-        model.addAttribute("title", "Add Location");
+        model.addAttribute("title", "Add Client");
         model.addAttribute(new Location());
         return "location/add";
 
@@ -52,7 +52,7 @@ public class LocationController {
                            Errors errors, Model model){
 
         if (errors.hasErrors()){
-            model.addAttribute("title", "Locations");
+            model.addAttribute("title", "Clients");
             return "location/add";
         }
 

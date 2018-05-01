@@ -15,30 +15,37 @@
 
 
 
-<table class="table">
+<table class="table table-hover">
+    <thead class="thead-dark">
 
     <tr>
-        <th>Interviewer</th>
+
         <th>Name</th>
         <th>Address</th>
         <th>Description</th>
         <th>Status</th>
+        <th>Agent</th>
     </tr>
 
+    </thead>
+
     <tr th:each="property : ${properties}">
-        <td th:text="${property.user.name}"></td>
+
         <td th:text="${property.name}"></td>
         <td th:text="${property.address}"></td>
         <td th:text="${property.description}"></td>
         <td th:text="${property.status.name}"></td>
+        <td th:text="${property.user.name}"></td>
     </tr>
 
 </table>
 
 
+<button type="submit" class="btn btn-secondary"><a href="/property/add">Add</a></button>
+<button type="submit" class="btn btn-secondary"><a href="/property/remove">Remove</a></button>
 
-<a href="/property/add">Add</a> |
-<a href="/property/remove">Remove</a>
+<!--<a href="/property/add">Add</a> |
+<a href="/property/remove">Remove</a>-->
 
 </body>
 </html>
